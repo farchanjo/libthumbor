@@ -295,11 +295,10 @@ class BaseHandler(tornado.web.RequestHandler):
                 is_mixed_storage = isinstance(storage, MixedStorage)
                 is_mixed_no_file_storage = is_mixed_storage and isinstance(storage.file_storage, NoStorage)
 
-                if not (is_no_storage or is_mixed_no_file_storage):
+                if not (is_no_storage or is_mixed_no_file_storage or self.context.request.nocache):
                     buffer = engine.read()
                     storage.put(url, buffer)
-
-                storage.put_crypto(url)
+                    storage.put_crypto(url)
 
                 callback(normalized, engine=engine)
 

@@ -99,10 +99,12 @@ class RequestParameters:
                  focal_points=None,
                  unsafe=False,
                  hash=None,
-                 accepts_webp=False):
+                 accepts_webp=False,
+                 nocache=False):
 
         self.debug = bool(debug)
         self.meta = bool(meta)
+        self.nocache = bool(nocache)
         self.trim = trim
         if trim is not None:
             trim_parts = trim.split(':')

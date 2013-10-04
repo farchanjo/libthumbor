@@ -10,11 +10,11 @@
 
 import re
 
-
 class Url(object):
 
     unsafe_or_hash = r'(?:(?:(?P<unsafe>unsafe)|(?P<hash>[^/]{28,}?))/)?'
     debug = '(?:(?P<debug>debug)/)?'
+    nocache = '(?:(?P<nocache>nocache)/)?'
     meta = '(?:(?P<meta>meta)/)?'
     trim = '(?:(?P<trim>trim(?::(?:top-left|bottom-right))?(?::\d+)?)/)?'
     crop = '(?:(?P<crop_left>\d+)x(?P<crop_top>\d+):(?P<crop_right>\d+)x(?P<crop_bottom>\d+)/)?'
@@ -24,6 +24,7 @@ class Url(object):
     valign = r'(?:(?P<valign>top|bottom|middle)/)?'
     smart = r'(?:(?P<smart>smart)/)?'
     filters = r'(?:filters:(?P<filters>.+\))/)?'
+    nocache = '(?:(?P<nocache>nocache)/)?'
     image = r'(?P<image>.+)'
 
     compiled_regex = None
@@ -44,6 +45,7 @@ class Url(object):
         reg.append(cls.valign)
         reg.append(cls.smart)
         reg.append(cls.filters)
+        reg.append(cls.nocache)
         reg.append(cls.image)
 
         return ''.join(reg)
@@ -65,6 +67,7 @@ class Url(object):
         int_or_0 = lambda value: 0 if value is None else int(value)
         values = {
             'debug': result['debug'] == 'debug',
+            'nocache': result['nocache'] == 'nocache',
             'meta': result['meta'] == 'meta',
             'trim': result['trim'],
             'crop': {
@@ -91,6 +94,7 @@ class Url(object):
     @classmethod
     def generate_options(cls,
                          debug=False,
+                         nocache=False,
                          width=0,
                          height=0,
                          smart=False,
@@ -156,4 +160,8 @@ class Url(object):
         if filters:
             url.append('filters:%s' % filters)
 
+        if nocache:
+            url.append('nocache')
+
         return '/'.join(url)
+

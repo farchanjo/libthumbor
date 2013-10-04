@@ -37,6 +37,7 @@ class Cryptor(object):
                 crop_right,
                 crop_bottom,
                 filters,
+                nocache,
                 image):
 
         generated_url = Url.generate_options(
@@ -55,7 +56,8 @@ class Cryptor(object):
             crop_top=crop_top,
             crop_right=crop_right,
             crop_bottom=crop_bottom,
-            filters=filters
+            filters=filters,
+            nocache=nocache
         )
 
         url = "%s/%s" % (generated_url, hashlib.md5(image).hexdigest())
