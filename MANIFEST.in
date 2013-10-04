@@ -1,6 +1,9 @@
 prune dist
 prune build
+<<<<<<< HEAD
 recursive-include thumbor *.py
 recursive-include thumbor *.conf
 recursive-include thumbor *.xml
 recursive-include thumbor *.h
+=======
+>>>>>>> 15fe862f59c98214949ddc295ea2b9b5662cf398

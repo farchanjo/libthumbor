@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 run: compile_ext
 	@thumbor -l debug
 
@@ -42,3 +43,13 @@ redis: kill_redis
 
 flake:
 	@flake8 . --ignore=W801,E501
+=======
+test:
+	nosetests -v -s tests
+
+ci_test:
+	nosetests -v -s tests
+
+publish:
+	python setup.py sdist upload
+>>>>>>> 15fe862f59c98214949ddc295ea2b9b5662cf398

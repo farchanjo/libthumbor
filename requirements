@@ -2,6 +2,7 @@ libevent-dev
 libxml2-dev
 libcurl4-gnutls-dev
 python-pycurl-dbg
+<<<<<<< HEAD
 librtmp-dev
 libatlas-base-dev
 gfortran
@@ -89,3 +90,5 @@ libboost-python-dev
 tree
 webp
 libwebp-dev
+=======
+>>>>>>> 15fe862f59c98214949ddc295ea2b9b5662cf398

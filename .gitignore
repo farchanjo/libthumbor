@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.pyc
 .DS_Store
 *.swp
@@ -29,3 +30,11 @@ opencv
 /debian/thumbor.prerm.debhelper
 /debian/thumbor.substvars
 /debian/tmp/
+=======
+*.swp
+*.pyc
+.DS_Store
+dist
+libthumbor.egg-info
+*.db
+>>>>>>> 15fe862f59c98214949ddc295ea2b9b5662cf398
